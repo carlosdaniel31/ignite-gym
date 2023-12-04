@@ -1,10 +1,10 @@
-import { StatusBar, Text, View } from 'react-native';
+import { StatusBar } from 'react-native';
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
 import { NativeBaseProvider } from 'native-base';
-import { Loading } from '@components/Loading';
 import { THEME } from './src/theme';
 import { Routes } from './src/routes';
-// import { Signup } from '@screens/Signup';
+import { Loading } from '@components/Loading';
+import { AuthContextProvider } from '@contexts/AuthContext'
 
 export default function App() {
   const [fontsLoaded] = useFonts({Roboto_400Regular, Roboto_700Bold})
@@ -16,7 +16,9 @@ export default function App() {
         backgroundColor={'transparent'}
         translucent
       />
-      {!fontsLoaded ? <Loading /> : <Routes />}
+      <AuthContextProvider>
+        {!fontsLoaded ? <Loading /> : <Routes />}
+      </AuthContextProvider>
     </NativeBaseProvider>
   );
 }
