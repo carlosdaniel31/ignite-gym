@@ -56,13 +56,12 @@ export function Signin() {
           <Controller
             control={control}
             name="email"
-            render={({ field: {onChange, value}})=> (
+            render={({ field: {onChange}})=> (
               <Input
                 placeholder="E-mail"
                 keyboardType="email-address"
                 autoCapitalize="none"
                 onChangeText={onChange}
-                value={value}
                 errorMessage={errors.email?.message}
               />
             )}
@@ -70,12 +69,11 @@ export function Signin() {
           <Controller 
             control={control}
             name='password'
-            render={({field: {onChange, value}})=> (
+            render={({field: {onChange}})=> (
               <Input 
                 placeholder="Senha" 
                 secureTextEntry 
                 onChange={onChange}
-                value={value}
                 errorMessage={errors.password?.message}
               />
             )}

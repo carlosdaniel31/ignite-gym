@@ -18,7 +18,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps){
 
   async function signin(email: string, password: string){
     try {
-      const { data} = await api.post('/sessions', {email, password})
+      const { data } = await api.post('/sessions', {email, password})
 
       if(data.user){
         setUser(data.user)
