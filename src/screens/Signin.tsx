@@ -73,7 +73,7 @@ export function Signin() {
               <Input 
                 placeholder="Senha" 
                 secureTextEntry 
-                onChange={onChange}
+                onChangeText={onChange}
                 errorMessage={errors.password?.message}
               />
             )}
